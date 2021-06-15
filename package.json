@@ -15,5 +15,12 @@
     "url": "https://github.com/andrasbanki/myFlix-client/issues"
   },
   "homepage": "https://github.com/andrasbanki/myFlix-client#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.3.1"
+  }
 }
