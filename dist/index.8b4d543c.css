@@ -1,4 +1,14 @@
-.my-flix {
-  color: red;
+
+
+* {
+  background-color: #e7e3d2;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 /*# sourceMappingURL=index.8b4d543c.css.map */
