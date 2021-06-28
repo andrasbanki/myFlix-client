@@ -10,7 +10,7 @@ export class MovieView extends React.Component {
 
     return (
       <Card border="dark" style={{ width: '30 rem', height: '90rem', margin: '5 rem' }} >
-        <Card.Img variant="top" rounded src={movie.imageUrl} />
+        <Card.Img variant="top" rounded="true" src={movie.imageUrl} />
         <Card.Body>
           <Card.Title style={{fontSize: 28}}>{movie.Title}</Card.Title>
 

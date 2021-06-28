@@ -18,7 +18,7 @@ export class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: null,
-      register: true
+      showLoginForm: true
     };
   }
 
@@ -32,6 +32,12 @@ export class MainView extends React.Component {
     .catch(error => {
       console.log(error);
     });
+  }
+
+  toggleCreationForm = () => {
+    this.setState({
+      showLoginForm: !this.state.showLoginForm
+    })
   }
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
@@ -50,33 +56,20 @@ export class MainView extends React.Component {
     });
   }
 
-  onRegister(register){
-    this.setState({
-      register
-    })
-  }
-
   onBackClick() {
     this.setState({
       setSelectedMovie: null
     });
   }
 
-  toggleRegister = function(e) {
-    e.preventDefault();
-    this.setState({
-      register: !this.state.register
-    })
-  }
-
   render() {
-    const { movies, selectedMovie, register } = this.state;
+    const { movies, selectedMovie, register, showLoginForm } = this.state;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (register) return <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />;
+    if (this.state.user === null && showLoginForm === false ) return <RegistrationView onLoggedIn={(user) => this.onLoggedIn(user)} toggleCreationForm={this.toggleCreationForm} />;
 
-    if (this.state.user === null)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />;
+    if (this.state.user === null && showLoginForm)
+      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleCreationForm={this.toggleCreationForm} />;
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view">Your page is loading...</div>;
@@ -92,7 +85,7 @@ export class MainView extends React.Component {
           )
           : movies.map(movie => (
             <Col md={3} key={movie._id} >
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              <MovieCard movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
             </Col>
           ))
         }

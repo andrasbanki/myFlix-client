@@ -22036,7 +22036,7 @@ class MainView extends _reactDefault.default.Component {
             movies: [],
             selectedMovie: null,
             user: null,
-            register: true
+            showLoginForm: true
         };
     }
     componentDidMount() {
@@ -22048,6 +22048,11 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
+    toggleCreationForm = ()=>{
+        this.setState({
+            showLoginForm: !this.state.showLoginForm
+        });
+    };
     /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/ setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
@@ -22058,41 +22063,30 @@ class MainView extends _reactDefault.default.Component {
             user
         });
     }
-    onRegister(register) {
-        this.setState({
-            register
-        });
-    }
     onBackClick() {
         this.setState({
             setSelectedMovie: null
         });
     }
-    toggleRegister = function(e) {
-        e.preventDefault();
-        this.setState({
-            register: !this.state.register
-        });
-    };
     render() {
-        const { movies , selectedMovie , register  } = this.state;
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (register) return(/*#__PURE__*/ _reactDefault.default.createElement(_registrationView.RegistrationView, {
-            onRegister: (register1)=>this.onRegister(register1)
+        const { movies , selectedMovie , register , showLoginForm  } = this.state;
+        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (this.state.user === null && showLoginForm === false) return(/*#__PURE__*/ _reactDefault.default.createElement(_registrationView.RegistrationView, {
+            onLoggedIn: (user)=>this.onLoggedIn(user)
             ,
-            toggleRegister: this.toggleRegister,
+            toggleCreationForm: this.toggleCreationForm,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 76
+                lineNumber: 69
             },
             __self: this
         }));
-        if (this.state.user === null) return(/*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
+        if (this.state.user === null && showLoginForm) return(/*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
             onLoggedIn: (user)=>this.onLoggedIn(user)
             ,
-            toggleRegister: this.toggleRegister,
+            toggleCreationForm: this.toggleCreationForm,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 79
+                lineNumber: 72
             },
             __self: this
         }));
@@ -22101,7 +22095,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 82
+                lineNumber: 75
             },
             __self: this
         }, "Your page is loading..."));
@@ -22109,14 +22103,14 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 85
+                lineNumber: 78
             },
             __self: this
         }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
             md: 8,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 89
+                lineNumber: 82
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
@@ -22126,7 +22120,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 90
+                lineNumber: 83
             },
             __self: this
         })) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -22134,18 +22128,17 @@ class MainView extends _reactDefault.default.Component {
                 key: movie._id,
                 __source: {
                     fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 94
+                    lineNumber: 87
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
-                key: movie._id,
                 movie: movie,
                 onMovieClick: (newSelectedMovie)=>{
                     this.setSelectedMovie(newSelectedMovie);
                 },
                 __source: {
                     fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 95
+                    lineNumber: 88
                 },
                 __self: this
             }))
@@ -22195,7 +22188,7 @@ class MovieCard extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
             variant: "top",
-            rounded: true,
+            rounded: "true",
             src: movie.imageUrl,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
@@ -23479,7 +23472,7 @@ class MovieView extends _reactDefault.default.Component {
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
             variant: "top",
-            rounded: true,
+            rounded: "true",
             src: movie.imageUrl,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
@@ -24988,16 +24981,26 @@ function LoginView(props) {
             lineNumber: 30
         },
         __self: this
-    }, "Submit"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-        variant: "outline-secondary",
-        type: "submit",
-        onClick: props.onRegister,
+    }, "Submit"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
         __source: {
             fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/login-view/login-view.jsx",
             lineNumber: 31
         },
         __self: this
-    }, "Register")));
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        __source: {
+            fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/login-view/login-view.jsx",
+            lineNumber: 32
+        },
+        __self: this
+    }, "If you have no account: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        onClick: props.toggleCreationForm,
+        __source: {
+            fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/login-view/login-view.jsx",
+            lineNumber: 33
+        },
+        __self: this
+    }, "Register"))));
 }
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
@@ -25007,7 +25010,7 @@ LoginView.propTypes = {
         password: _propTypesDefault.default.string.isRequired
     }),
     onLoggedIn: _propTypesDefault.default.func.isRequired,
-    onRegister: _propTypesDefault.default.func
+    toggleCreationForm: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
@@ -26188,7 +26191,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password, email, birthday);
-        props.onRegister(username);
+        props.onLoggedIn(username);
     };
     return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Form, {
         __source: {
@@ -26294,15 +26297,35 @@ function RegistrationView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 39
+            lineNumber: 40
         },
         __self: this
-    }, "Register"), " "));
+    }, "Register"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        __source: {
+            fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    }, "If you have account: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        onClick: props.toggleCreationForm,
+        __source: {
+            fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 43
+        },
+        __self: this
+    }, "Login"))));
 }
 _s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
-    onRegister: _propTypesDefault.default.func.isRequired
+    onLoggedIn: _propTypesDefault.default.func.isRequired,
+    toggleCreationForm: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "RegistrationView");

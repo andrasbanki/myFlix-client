@@ -12,7 +12,7 @@ export function RegistrationView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    props.onRegister(username);
+    props.onLoggedIn(username);
   };
 
   return (
@@ -36,10 +36,17 @@ export function RegistrationView(props) {
         <Form.Label>Birthday:</Form.Label>
         <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
       </Form.Group>
-      <Button variant="outline-secondary" type="submit" onClick={handleSubmit}>Register</Button>    </Form>
+      
+      <Button variant="outline-secondary" type="submit" onClick={handleSubmit}>Register</Button>
+      <div>
+        <span>If you have account: </span>
+        <span onClick={props.toggleCreationForm}>Login</span>
+      </div>
+    </Form>
   );
 }
 
 RegistrationView.propTypes = {
-  onRegister: PropTypes.func.isRequired
+  onLoggedIn: PropTypes.func.isRequired,
+  toggleCreationForm: PropTypes.func.isRequired
 };
