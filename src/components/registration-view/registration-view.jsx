@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -35,9 +36,7 @@ export function RegistrationView(props) {
         <Form.Label>Birthday:</Form.Label>
         <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
       </Form.Group>
-      <button variant="outline-secondary" type="submit" onClick={handleSubmit}>Register</button>
-      <button variant="outline-secondary" type="submit" onClick={() => { onBackClick(null); }}>Back</button>
-    </Form>
+      <Button variant="outline-secondary" type="submit" onClick={handleSubmit}>Register</Button>    </Form>
   );
 }
 
