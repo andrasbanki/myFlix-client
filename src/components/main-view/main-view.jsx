@@ -70,8 +70,6 @@ export class MainView extends React.Component {
     this.getGenres(authData.token);
     this.getDirectors(authData.token);
     this.getUsers(authData.token);
-    this.props.handleUpdate(authData.token);
-    this.props.userDelete(authData.token);
   }
 
   onLoggedOut() {
