@@ -22076,8 +22076,6 @@ class MainView extends _reactDefault.default.Component {
         this.getGenres(authData.token);
         this.getDirectors(authData.token);
         this.getUsers(authData.token);
-        this.props.handleUpdate(authData.token);
-        this.props.userDelete(authData.token);
     }
     onLoggedOut() {
         this.setState({
@@ -22155,20 +22153,20 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 159
+                lineNumber: 157
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 160
+                lineNumber: 158
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Container, {
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 161
+                lineNumber: 159
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar, {
@@ -22177,63 +22175,63 @@ class MainView extends _reactDefault.default.Component {
             fixed: "top",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 162
+                lineNumber: 160
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: '/',
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 163
+                lineNumber: 161
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Button, {
             variant: "link",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 164
+                lineNumber: 162
             },
             __self: this
         }, "Home")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/users/${user}`,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 166
+                lineNumber: 164
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Button, {
             variant: "link",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 167
+                lineNumber: 165
             },
             __self: this
         }, "Profile")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: '/directors',
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 169
+                lineNumber: 167
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Button, {
             variant: "link",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 170
+                lineNumber: 168
             },
             __self: this
         }, "Directors")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: '/genres',
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 172
+                lineNumber: 170
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Button, {
             variant: "link",
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 173
+                lineNumber: 171
             },
             __self: this
         }, "Genres")), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Button, {
@@ -22241,7 +22239,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 175
+                lineNumber: 173
             },
             __self: this
         }, "Logout"))), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22264,7 +22262,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 179
+                lineNumber: 177
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22279,7 +22277,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 190
+                lineNumber: 188
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22302,7 +22300,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 197
+                lineNumber: 195
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22324,7 +22322,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 207
+                lineNumber: 205
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22342,7 +22340,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 217
+                lineNumber: 215
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22364,7 +22362,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 225
+                lineNumber: 223
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22382,7 +22380,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 235
+                lineNumber: 233
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22404,7 +22402,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/andrasbanki/Desktop/CareerFoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 243
+                lineNumber: 241
             },
             __self: this
         }))));
@@ -22458,7 +22456,6 @@ class MovieCard extends _reactDefault.default.Component {
         const token = localStorage.getItem("token");
         const user = localStorage.getItem("user");
         _axiosDefault.default.delete(`https://andrasbanki-myflixapp.herokuapp.com/users/${user}` + "/favorites/" + this.props.movie._id, {
-        }, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -39577,7 +39574,7 @@ function RegistrationView(props) {
         }).then((response)=>{
             const data = response.data;
             console.log(data);
-            window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+            window.open('/login', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
         }).catch((e1)=>{
             console.log('error registering the user');
         });
@@ -40009,7 +40006,7 @@ class ProfileView extends _reactDefault.default.Component {
         const user = localStorage.getItem("user");
         e.preventDefault();
         console.log(this.state.user);
-        _axiosDefault.default.put(`https://andrasbanki-myflixapp.herokuapp.com/users/${this.state.user.Username}`, {
+        _axiosDefault.default.put(`https://andrasbanki-myflixapp.herokuapp.com/users/${user}`, {
             Username: this.state.user.Username,
             Password: this.state.user.Password,
             Email: this.state.user.Email,
@@ -40037,8 +40034,8 @@ class ProfileView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             console.log(response.data);
-            alert(user + 'has been deleted!');
-            this.onLoggedOut();
+            alert(this.state.user.Username + ' has been deleted!');
+            this.props.signOutUser();
         }).catch(function(error) {
             console.log(error);
         });
