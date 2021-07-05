@@ -25,7 +25,7 @@ export class MovieCard extends React.Component {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     axios.delete(`https://andrasbanki-myflixapp.herokuapp.com/users/${user}` + "/favorites/" +
-      this.props.movie._id, {},
+      this.props.movie._id,
       { headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
