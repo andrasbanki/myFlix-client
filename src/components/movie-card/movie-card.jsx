@@ -16,7 +16,6 @@ export class MovieCard extends React.Component {
       { headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
-        console.log(response);
         alert(this.props.movie.Title + " has been added to your favorites!");
       })
   }
@@ -29,13 +28,30 @@ export class MovieCard extends React.Component {
       { headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
-        console.log(response);
         alert(this.props.movie.Title + " has been removed from your favorites!");
       })
   }
-  
+
+  showAddFavoritButton(movie, show) {
+    if (show) { 
+    return (
+      <Link to={`/movies/${movie._id}`}>
+        <Button variant="outline-success" onClick={() => this.handleAdd(movie)}>Add to favorites</Button>
+      </Link>
+    )}
+  }
+
+  showRemoveFavoritButton(movie, show) {
+    if (show) { 
+    return (
+      <Link to={`/movies/${movie._id}`}>
+        <Button variant="outline-danger" onClick={() => this.handleRemove(movie)}>Remove from favorites</Button>
+      </Link>
+    )}
+  }
+
   render() {
-    const { movie, } = this.props;
+    const { movie, showRemoveBtn, showAddBtn } = this.props;
     
   return (
     <Container>
@@ -47,12 +63,8 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="outline-secondary">See More</Button>
           </Link>
-          <Link to={`/movies/${movie._id}`}>
-            <Button variant="outline-success" onClick={() => this.handleAdd(movie)}>Add to favorites</Button>
-          </Link>
-          <Link to={`/movies/${movie._id}`}>
-            <Button variant="outline-danger" onClick={() => this.handleRemove(movie)}>Remove from favorites</Button>
-          </Link>
+          {this.showAddFavoritButton(movie, showAddBtn)}
+          {this.showRemoveFavoritButton(movie, showRemoveBtn)}
         </Card.Body>
       </Card>
       </Container>

@@ -12,8 +12,6 @@ export class ProfileView extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: null,
-      FavoritMovies: [],
       userUpdate: false,
     };
   }
@@ -45,7 +43,6 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     e.preventDefault();
-    console.log(this.state.user);
     axios.put(`https://andrasbanki-myflixapp.herokuapp.com/users/${user}`, {  
       Username: this.state.user.Username,
       Password: this.state.user.Password,
@@ -98,7 +95,7 @@ export class ProfileView extends React.Component {
           <h4>Email: </h4>
           <span>{user.Email}</span>
 
-          <h4>Brithday: </h4>
+          <h4>Birthday: </h4>
           <span>{user.Birthday}</span>
 
         </div>
@@ -109,7 +106,7 @@ export class ProfileView extends React.Component {
       </div> 
       <Row>
         {FavoritMovies.map(m => (<Col md={4} key={m._id}>
-          <MovieCard movie={m}/>
+          <MovieCard movie={m} showRemoveBtn={true} showAddBtn={false}/>
         </Col>))}
       </Row>
       </div>
