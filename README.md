@@ -1,17 +1,54 @@
 ## React App (myFlix)
 
-# Objective
+![Screenshot](https://github.com/andrasbanki/myFlix-client/raw/main/img/myFlix.png)
+
+# Description
 
 Using React, build the client-side for an application called myFlix based on its existing
-server-side code (REST API and database).
+server-side code (myFlix API and database).
+
+Web Application link: https://andrasbanki-myflixapp.netlify.app/
 
 API link: https://andrasbanki-myflixapp.herokuapp.com/
 
-Github repositorie: https://github.com/andrasbanki/myFlix-client
-
 API Documentation: https://andrasbanki-myflixapp.herokuapp.com/documentation.html
 
-This Project will use
+## User Stories
+
+-   As a user, I want to be able to access information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
+-   As a user, I want to be able to create a profile so I can save data about my favorite movies.
+
+## Quick Start
+
+### Install dependencies
+
+```
+npm install
+```
+
+### Build for development
+
+```
+parcel [path to index.html]
+```
+
+_By default path to index.html is 'src/index.html'_
+
+```
+parcel src/index.html
+```
+
+### Usage
+
+Parcel will run a local server on port: 1234
+
+Open the application in your browser
+
+```
+http://localhost:1234/
+```
+
+### This Project will use
 
 JavaScript
 React
