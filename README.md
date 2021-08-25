@@ -50,10 +50,10 @@ http://localhost:1234/
 
 ### This Project will use
 
-JavaScript
-React
-Redux
+-   JavaScript
+-   React
+-   Redux
 
-Hosting on Netlify
+### Hosting on Netlify
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a497f023-f41b-4a97-8427-1a65bb8bae0b/deploy-status)](https://app.netlify.com/sites/andrasbanki-myflixapp/deploys)
